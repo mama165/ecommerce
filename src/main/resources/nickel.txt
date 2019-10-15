@@ -1,0 +1,129 @@
+panier(initalBookPrice, tomeI, tomeII, tomeIII, tomeIV, tomeV) => BigDecimal Price
+
+Règles :
+
+2 tomes différents => -5%
+3 tomes différents => -10%
+4 tomes différents => -20%
+5 tomes différents => -25%
+
+4 tomes dont 3 différents => -10% sur les 3 tomes différents
+                              Le 4e coûte toujours "initalBookPrice")
+
+
+2 tomes I
+2 tomes II
+2 tomes III
+1 tome IV
+1 tome V
+
+==
+
+1 tome I            1 tome I
+1 tomes II         1 tomes II
+1 tomes III        1 tomes III
+1 tome IV          0
+                            1 tome V
+
+I,II,III,IV             I,II,III,V
+1,1,1,1,0          1,1,1,0,1
+
+4*8.00-20%+4*8.00-20%=25.60*2=51.20
+
+==
+
+1 tome I           1 tome I
+1 tome II          1 tome II
+1 tome III         1 tome III
+1 tome IV  
+1 tome V
+ 
+I,II,III,IV,V       I,II,III
+1,1,1,1,1           1,1,1,0,0
+
+5*8.00-25%+3*8-10% = 51.60
+
+==
+
+1 tome I            0               1 tome I
+1 tome II           1 tome II       0
+1 tome III          1 tome III      0
+                    1 tome IV       0
+                    1 tome V        0
+
+I,II,III            II,III,IV,V     I
+2,1,1,0,0           0,1,1,1,1       1,0,0,0,0
+
+3*8.00-10%+4*8.00-20%+8.00=55.2
+
+==
+
+1 tome I            1 tome I        O
+1 tome II           1 tome II       0
+1 tome III          1 tome III      0
+                                    1 tome IV
+                                    1 tome V
+
+I,II,III            I,II,III        IV,V
+1,1,1,0,0           1,1,1,0,0       0,0,0,1,1
+
+3*8.00-10%+3*8.00-10%+2*8.00-5% = 58.4
+
+----------------------------------------------------------------------------------
+
+1 tomes I
+1 tomes II
+1 tomes III                     =>      1,1,1,1,1 => 5*8.00-25% = 30
+1 tome IV
+1 tome V
+
+==
+
+1 tomes I           0
+1 tomes II          0
+1 tomes III         0           =>      3*8 -10% + 2*8-10% = 36
+                    1 tome IV
+                    1 tome V
+
+1,1,1,0,0           0,0,0,1,1
+
+----------------------------------------------------------------------------------
+
+2 tome I            
+1 tome II           
+1 tome III
+
+2,1,1,0,0
+
+==
+
+1 tome I            1 tome I
+1 tome II           0
+1 tome III          0
+0                   0
+0                   0
+
+I,II,III            I
+1,1,1,0,0           1,0,0,0,0
+
+3*8.00-10%+8=29.6
+
+
+
+
+
+
+
+Input : a,b,c,d,e
+
+[0-a][0-b][0-c][0-d][0-e]
+
+List 
+    a-1,b,c,d,e / 1,0,0,0,0             p1
+    a-1,b-4,c-7,0,e / 1,1,4,7,0,0       p2
+    a-x,b-y,c-m,d-t,e-h / x,y,m,t,h     p3
+    ...                                 pi
+
+Pack => int a,b,c,d,e
+
+generatePacks(tomeI, tomeII, tomeIII, tomeIV, tomeIV) : List<Pack>

@@ -1,0 +1,36 @@
+La finalité n'est pas tant de réussir à trouver le bon résultat mais réside dans la capacité d'analyse, les choix de conception et la qualité de l'implémentation (lisibilité du code, maintenabilité, évolutivité).
+
+Description du problème
+
+Avant d'être la série à succès que l'on connait tous, Game of Thrones fut
+publiée sous la forme de 5 romans de fantasy. L'éditeur de cette pentalogie
+a donc profité de l'engouement lié à sa diffusion télévisée pour créer une
+opération spéciale de vente.
+
+Un exemplaire de n'importe quel des cinq livres coûte 8€. Si vous en achetez
+deux différents, vous pourrez bénéficier d'une réduction de 5%. Pour trois
+exemplaires différents, la réduction s'élèvera à 10%. Avec 4 ouvrages
+différents, vous obtenez une remise de 20%. Pour la pentalogie entière, vous
+aurez le droit à une réduction affolante de 25%.
+
+Notez que si vous achetez par exemple quatre livres, dont trois sont des tomes
+différents, vous obtenez une réduction de 10% sur chacun des 3 qui forment un
+pack, mais le quatrième vous coûtera quand même 8€.
+
+L'opération commerciale va attirer une masse impressionante de lecteurs en
+librairie. Votre mission est donc d'écrire un programme qui calcule le prix
+de n'importe quel panier, tout en maximisant la réduction pour le client.
+
+Par exemple, combien ce panier de livres va-t-il coûter ?
+ - 2 tomes I
+ - 2 tomes II
+ - 2 tomes III
+ - 1 tome IV
+ - 1 tome V
+
+Réponse :
+
+  (4 * 8.00) - 20% (I, II, III, IV)
++ (4 * 8.00) - 20% (I, II, III, V)
+= 25.60 * 2
+= 51.20
